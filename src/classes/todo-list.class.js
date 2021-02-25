@@ -1,11 +1,10 @@
-import { Todo } from "./todo.class";
+import { Todo } from "./todo.class"; 
 
 export class TodoList {
 
   constructor( ){
 
-    // this.todos = [];
-    this.cargarLocalStorage();
+    this.cargarLocalStorage();                              // Aqui inicia la 1ra parte al cargar el script
     
   }
 
@@ -41,12 +40,16 @@ export class TodoList {
       
   }
 
+
+  // guardarLocalStorage se invocará en cada evento para guardar los cambios en cache
   guardarLocalStorage(){
 
-    localStorage.setItem('todo', JSON.stringify( this.todos ) );
+    localStorage.setItem('todo', JSON.stringify( this.todos ) ); 
 
   }
 
+
+  // Esta función recupera los todos guardados en cache, caso contrario un array vacío
   cargarLocalStorage(){
 
     // if( localStorage.getItem('todo') ){

@@ -1,30 +1,21 @@
-import './styles.css';      
+import './styles.css';                                  // Importación de los estilos globales
 
-import { Todo, TodoList } from './classes';
-import { crearTodoHtml } from './js/componentes';
+import { TodoList } from './classes';                  // Importación del documento global de las clases
+import { crearTodoHtml } from './js/componentes';      // Importación de la función
 
-export const todoList = new TodoList();
+export const todoList = new TodoList();                // Exportando la instancia de la clase
 
-todoList.todos.forEach( todo => crearTodoHtml( todo ) );
-
-// console.log('todos', todoList.todos);
+todoList.todos.forEach( todo => crearTodoHtml( todo ) );  // cargando en pantalla los todos que se recuperaron del localStorage
 
 
 
-
-
-
-
-// const tarea = new Todo('Aprender javascript');
-// todoList.nuevoTodo ( tarea );
-// console.log( todoList );
-// crearTodoHtml(  tarea );
+//Ejemplo de como funcionan localStorage y sessionStorage
 
 // localStorage.setItem('mi-key', 'ABC1234');
 // sessionStorage.setItem('mi-key', 'ABC1235');
 
 
-// setTimeout( () => {
+// setTimeout( () => {                        // Usando un timer para ver como eliminar un dato de localStorag
 
 //   localStorage.removeItem('mi-key');
 

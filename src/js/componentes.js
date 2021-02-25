@@ -1,5 +1,5 @@
-import { Todo } from '../classes';
-import { todoList } from '../index';
+import { Todo } from '../classes';				// Importando clase
+import { todoList } from '../index';			// Importando la instancia
 
 
 
@@ -37,11 +37,11 @@ export const crearTodoHtml = ( todo ) =>{
 
 txtInput.addEventListener('keyup', ( event ) => {
 
-	if ( event.keyCode === 13 && txtInput.value.length > 0 ){
+	if ( event.keyCode === 13 && txtInput.value.length > 0 ){		// Si presiono enter y lo ingresado es al menos 1 caracter
 
-		console.log(txtInput.value); 
-		const nuevoTodo = new Todo( txtInput.value );
-		todoList.nuevoTodo( nuevoTodo );
+		console.log(txtInput.value); 									
+		const nuevoTodo = new Todo( txtInput.value ); // Instancia de la clase Todo
+		todoList.nuevoTodo( nuevoTodo );							// Ingreso el todo al []
 
 		crearTodoHtml( nuevoTodo );
 		txtInput.value = '';
@@ -52,15 +52,15 @@ txtInput.addEventListener('keyup', ( event ) => {
 divTodoList.addEventListener('click', (event) => {
 
 		const nombreElemento = event.target.localName; //input, label, button
-		const todoElemento 	 = event.target.parentElement.parentElement;
-		const todoId				 = todoElemento.getAttribute('data-id');
+		const todoElemento 	 = event.target.parentElement.parentElement; // Todo el bloque desde el <li>, donde esta el id
+		const todoId				 = todoElemento.getAttribute('data-id');		//  Guardando el id
 
-		if( nombreElemento.includes('input')){	// click en el check
+		if( nombreElemento.includes('input')){	// click en el check(palomita)
 
 				todoList.marcarCompletados( todoId );
 				todoElemento.classList.toggle('completed');
 
-		}else if( nombreElemento.includes('button') ){		// hay que borrar el todo
+		}else if( nombreElemento.includes('button') ){		// hay que borrar el todo(borrando con la x)
 
 			todoList.eliminarTodo( todoId );
 			divTodoList.removeChild( todoElemento );
