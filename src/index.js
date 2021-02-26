@@ -9,6 +9,11 @@ todoList.todos.forEach( todo => crearTodoHtml( todo ) );  // cargando en pantall
 
 
 
+
+
+
+
+
 //Ejemplo de como funcionan localStorage y sessionStorage
 
 // localStorage.setItem('mi-key', 'ABC1234');

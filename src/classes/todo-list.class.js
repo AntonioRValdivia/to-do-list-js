@@ -41,30 +41,34 @@ export class TodoList {
   }
 
 
-  // guardarLocalStorage se invocará en cada evento para guardar los cambios en cache
+  // Ésta funcion se invocará en cada evento para guardar los cambios en cache
   guardarLocalStorage(){
 
-    localStorage.setItem('todo', JSON.stringify( this.todos ) ); 
+    localStorage.setItem('todo', JSON.stringify( this.todos ) ); // transforma el obj{}js en un json string
+  
+    // Ésto es necesario porque no se pueden guardar objetos en localStorage, forzosamente deben ser strings
 
   }
 
 
   // Esta función recupera los todos guardados en cache, caso contrario un array vacío
   cargarLocalStorage(){
-
-    // if( localStorage.getItem('todo') ){
-
+    // if( localStorage.getItem('todo') ){                            // Usando if
     //   this.todos = JSON.parse( localStorage.getItem('todo') ) ;
-
     // }else{
     //   this.todos = [];
-    // }
-    this.todos = ( localStorage.getItem('todo') )
-                     ? JSON.parse( localStorage.getItem('todo') )
+    // }                                                   
+
+    this.todos = ( localStorage.getItem('todo') )                  // Usando ternario
+                     ? JSON.parse( localStorage.getItem('todo') ) // El json string a obj{}js
                      : []  ;
 
     this.todos = this.todos.map( obj => Todo.fromJson(obj) );
+    // Recuperamos todo el obj{} pero no se recuperan los métodos, tal y como deberían ser las instancias
+    //Hacemos uso del método fromJson() de la clase Todo para que se recreen las instancias
 
-  }
-
+    // Con el método map barre todo el array (si había) y cada elemento lo pasa por el método fromJson()
+    // Y me regresa un nuevo array con las instancias.
+  }                                                        
+                                                   
 }
