@@ -35,6 +35,7 @@ export const crearTodoHtml = ( todo ) =>{
 
 // Eventos
 
+// Al escribir un nuevo todo
 txtInput.addEventListener('keyup', ( event ) => {
 
 	if ( event.keyCode === 13 && txtInput.value.length > 0 ){		// Si presiono enter y lo ingresado es al menos 1 caracter
@@ -49,6 +50,7 @@ txtInput.addEventListener('keyup', ( event ) => {
 
 });
 
+// checkbox y equis
 divTodoList.addEventListener('click', (event) => {
 
 		const nombreElemento = event.target.localName; //input, label, button
@@ -71,7 +73,7 @@ divTodoList.addEventListener('click', (event) => {
 
 });
 
-
+// borrar completados
 btnBorrarCompletados.addEventListener('click', () => {
 
 		// Barre toda la lista buscando los que tengan la clase completed
@@ -88,7 +90,7 @@ btnBorrarCompletados.addEventListener('click', () => {
 
 });
 
-
+// Filtros
 ulFilters.addEventListener('click', (event) => {
 
 	const filtro = event.target.text;
