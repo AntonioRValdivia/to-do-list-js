@@ -60,7 +60,7 @@ divTodoList.addEventListener('click', (event) => {
 		if( nombreElemento.includes('input')){	// click en el check(palomita)
 
 				todoList.marcarCompletados( todoId );
-				todoElemento.classList.toggle('completed'); // NOTA: toggle quita o pone una clase según su caso(la invierte)
+				todoElemento.classList.toggle('completed'); // NOTA: toggle quita o pone un elemento según su caso(la invierte)
 				// la clase(.classlist) que quito o pongo es 'completed', la que tacha la tarea en pantalla
 				// No confundir con la checkbox
 
